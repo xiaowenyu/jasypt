@@ -59,16 +59,18 @@ public final class PropertyValueEncryptionUtils {
         return (trimmedValue.startsWith(ENCRYPTED_VALUE_PREFIX) && 
                 trimmedValue.endsWith(ENCRYPTED_VALUE_SUFFIX));
     }
-    
+
+    // ??ENC()???
     private static String getInnerEncryptedValue(final String value) {
         return value.substring(
                 ENCRYPTED_VALUE_PREFIX.length(),
                 (value.length() - ENCRYPTED_VALUE_SUFFIX.length()));
     }
 
-    
+    // ??
     public static String decrypt(
             final String encodedValue, final StringEncryptor encryptor) {
+        // ??
         return encryptor.decrypt(getInnerEncryptedValue(encodedValue.trim()));
     }
 

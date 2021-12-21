@@ -254,6 +254,7 @@ public final class StandardPBEStringEncryptor implements PBEStringCleanablePassw
      * @param config the <tt>PBEConfig</tt> object to be used as the 
      *               source for configuration parameters.
      */
+    // 配置解密套件
     public synchronized void setConfig(final PBEConfig config) {
         this.byteEncryptor.setConfig(config);
         if ((config != null) && (config instanceof StringPBEConfig)) {
@@ -707,6 +708,7 @@ public final class StandardPBEStringEncryptor implements PBEStringCleanablePassw
      * @throws EncryptionInitializationException if initialization could not
      *         be correctly done (for example, no password has been set).
      */
+    // 解密
     public String decrypt(final String encryptedMessage) {
         
         if (encryptedMessage == null) {
@@ -724,17 +726,20 @@ public final class StandardPBEStringEncryptor implements PBEStringCleanablePassw
 
             // Decode input to bytes depending on whether it is a
             // BASE64-encoded or hexadecimal String
+            // 加密的编码方式 base64
             if (this.stringOutputTypeBase64) {
                 encryptedMessageBytes = 
                     encryptedMessage.getBytes(ENCRYPTED_MESSAGE_CHARSET);
                 encryptedMessageBytes = 
                     this.base64.decode(encryptedMessageBytes);
             } else {
+                // hex编码
                 encryptedMessageBytes = 
                     CommonUtils.fromHexadecimal(encryptedMessage);
             }
 
             // Let the byte encyptor decrypt
+            // 解密
             final byte[] message = this.byteEncryptor.decrypt(encryptedMessageBytes);
             
             // Return the resulting decrypted String, using MESSAGE_CHARSET

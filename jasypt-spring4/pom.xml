@@ -182,7 +182,7 @@
         </executions>
       </plugin>
       
-      <plugin>
+<!--      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.1</version>
@@ -195,7 +195,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin>-->
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -217,7 +217,7 @@
     <dependency>
       <groupId>org.jasypt</groupId>
       <artifactId>jasypt</artifactId>
-      <version>1.9.3</version>
+      <version>1.9.4-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
 

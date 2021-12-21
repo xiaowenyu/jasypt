@@ -1144,6 +1144,7 @@ public final class StandardPBEByteEncryptor implements PBEByteCleanablePasswordE
                 /*
                  * Perform decryption using the Cipher
                  */
+                // 解密
                 final PBEParameterSpec parameterSpec = buildPBEParameterSpec(salt, iv);
                      
                 synchronized (this.decryptCipher) {
@@ -1154,7 +1155,8 @@ public final class StandardPBEByteEncryptor implements PBEByteCleanablePasswordE
                 }
 
             }
-            
+
+            // 返回解密结果
             // Return the results
             return decryptedMessage;
             

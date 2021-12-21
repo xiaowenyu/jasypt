@@ -69,6 +69,7 @@ public final class EncryptablePropertyPlaceholderConfigurer
 	 *            the {@link StringEncryptor} to be used do decrypt values. It
 	 *            can not be null.
 	 */
+	// 配置加密的封装方法
 	public EncryptablePropertyPlaceholderConfigurer(
 	        final StringEncryptor stringEncryptor) {
 		super();
@@ -99,6 +100,7 @@ public final class EncryptablePropertyPlaceholderConfigurer
 	 * 
 	 * @see org.springframework.beans.factory.config.PropertyResourceConfigurer#convertPropertyValue(java.lang.String)
 	 */
+	// 解密配置的参数
     @Override
 	protected String convertPropertyValue(final String originalValue) {
 		if (!PropertyValueEncryptionUtils.isEncryptedValue(originalValue)) {
@@ -118,6 +120,7 @@ public final class EncryptablePropertyPlaceholderConfigurer
 	 * @since 1.8
 	 * @see org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#resolveSystemProperty(java.lang.String)
 	 */
+	// spring PropertyPlaceholderConfigurer 的调用
     @Override
     protected String resolveSystemProperty(final String key) {
         return convertPropertyValue(super.resolveSystemProperty(key));

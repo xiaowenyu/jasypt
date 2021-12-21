@@ -641,7 +641,8 @@ public class EnvironmentPBEConfig extends SimplePBEConfig {
     
     
 
-    
+
+    // ??????
     public void setAlgorithm(final String algorithm) {
         this.algorithmEnvName = null;
         this.algorithmSysPropertyName = null;
@@ -664,6 +665,7 @@ public class EnvironmentPBEConfig extends SimplePBEConfig {
     }
 
 
+    // ????
     public void setPassword(final String password) {
         this.passwordEnvName = null;
         this.passwordSysPropertyName = null;
